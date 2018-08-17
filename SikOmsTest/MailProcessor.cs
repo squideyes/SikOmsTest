@@ -28,10 +28,10 @@ namespace SikOmsTest
         }
 
         [FunctionName("HandlePoison")]
-        public static void HandlePoison([QueueTrigger("savetomydatas-poison")]MyData source,
+        public static void HandlePoison([QueueTrigger("savetomydatas-poison")]MyData myData,
             string country, string userId, ILogger log)
         {
-            log.LogInformation($"The {country}/{userId} record could not be processed.");
+            log.LogInformation($"The {myData} record could not be processed.");
 
             // do something else like send out an alert, etc.
         }
